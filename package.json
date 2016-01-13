@@ -8,8 +8,7 @@
     "postinstall": "npm run deploy",
     "start": "node server.js",
     "build": "webpack --progress --colors",
-    "watch": "webpack --progress --colors --watch",
-    "dev": "node ./node_modules/concurrently/src/main.js --kill-others \"npm run watch\" \"npm start\"",
+    "watch": "node ./node_modules/concurrently/src/main.js --kill-others \"webpack --progress --colors --watch\" \"webpack-dev-server --config webpack.demo.config.js --hot --progress --colors\"",
     "build-demo": "webpack --config ./webpack.prod.config.js --progress --colors",
     "deploy": "set NODE_ENV=production && webpack --progress --colors && webpack --config ./webpack.prod.config.js --progress --colors"
   },

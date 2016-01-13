@@ -8,8 +8,16 @@ class HttpLink extends BaseComponent {
     super(props);
   }
   render(){
-    return <BaseLink {...this.props} linkType="http://" />;
+    return <BaseLink {...this.props} linkType={this.props.isHttps ? 'https://' : 'http://'} />;
   }
 }
+
+HttpLink.propTypes = {
+  isHttps: React.PropTypes.bool
+};
+
+HttpLink.defaultProps = {
+  isHttps: false
+};
 
 export default HttpLink;

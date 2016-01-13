@@ -13,7 +13,12 @@ class BaseLink extends BaseComponent {
   }
   render(){
     const url = this.props.linkType + this.props.value;
-    return <a {...this.props} href={url} onClick={this.handleClick}>{this.props.displayText || this.props.value}</a>;
+    return (
+      <a {...this.props}
+          href={url}
+          onClick={this.handleClick}
+      >{this.props.displayText || this.props.value}</a>
+    );
   }
 }
 
@@ -21,12 +26,14 @@ BaseLink.propTypes = {
   displayText: React.PropTypes.string
   ,linkType: React.PropTypes.string
   ,onClick: React.PropTypes.func
+  ,target: React.PropTypes.string
   ,value: React.PropTypes.node.isRequired
 };
 
 BaseLink.defaultProps = {
   linkType: 'http://'
   ,onClick: () => {}
+  ,target: '_blank'
 };
 
 export default BaseLink;
