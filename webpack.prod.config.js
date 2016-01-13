@@ -4,9 +4,10 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
 
-  entry: [
-    './demo/src/main.js'
-  ],
+  entry: {
+    app: './demo/src/main.js',
+    vendor: ['react', 'react-dom', 'react-bootstrap']
+  },
 
   output: {
     path: path.join(__dirname, 'public'),
@@ -15,6 +16,7 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
@@ -28,7 +30,7 @@ module.exports = {
     root: path.resolve(__dirname),
     extensions: ['', '.js', '.jsx'],
     alias: {
-      'react-stack': 'dist/react-stack'
+      'react-stack': 'dist/react-stack.js'
     }
   },
 

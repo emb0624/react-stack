@@ -5,12 +5,13 @@
   "description": "Reusable React Components",
   "main": "./dist/react-stack.js",
   "scripts": {
-    "postinstall": "webpack --config ./webpack.prod.config.js --progress --colors",
+    "postinstall": "npm run deploy",
     "start": "node server.js",
     "build-lib": "webpack --progress --colors",
     "watch-lib": "webpack --progress --colors --watch",
     "dev": "node ./node_modules/concurrently/src/main.js --kill-others \"npm run watch\" \"npm start\"",
-    "build-demo": "webpack --config ./webpack.prod.config.js --progress --colors"
+    "build-demo": "webpack --config ./webpack.prod.config.js --progress --colors",
+    "deploy": "set NODE_ENV=production && webpack --config ./webpack.prod.config.js --progress --colors"
   },
   "keywords": [
     "react",
