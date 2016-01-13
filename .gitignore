@@ -1,8 +1,10 @@
 node_modules/
 dist/
 
-public/main.js
-public/main.js.map
+public/vendor.bundle.js
+public/vendor.bundle.js.map
+public/app.js
+public/app.js.map
 public/*.woff2
 public/*.svg
 public/*.ttf
