@@ -4,9 +4,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: {
-    'react-stack': [
-      './src/main.js'
-    ]
+    'react-stack': './src/main.js'
   },
 
   output: {

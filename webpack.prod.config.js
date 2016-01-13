@@ -6,7 +6,7 @@ module.exports = {
 
   entry: {
     app: './demo/src/main.js',
-    vendor: ['react', 'react-dom', 'react-bootstrap']
+    vendor: ['react', 'react-dom', 'react-bootstrap', 'react-stack']
   },
 
   output: {
@@ -30,7 +30,7 @@ module.exports = {
     root: path.resolve(__dirname),
     extensions: ['', '.js', '.jsx'],
     alias: {
-      'react-stack': 'dist/react-stack.js'
+      'react-stack': 'dist/react-stack'
     }
   },
 
