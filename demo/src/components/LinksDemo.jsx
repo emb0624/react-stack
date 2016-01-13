@@ -1,6 +1,6 @@
 import React from 'react';
 import { Panel } from 'react-bootstrap';
-import { HttpLink, EmailLink, PhoneLink } from '../../../dist/react-stack';
+import { HttpLink, EmailLink, PhoneLink } from 'react-stack';
 
 class LinksDemo extends React.Component {
   constructor(){

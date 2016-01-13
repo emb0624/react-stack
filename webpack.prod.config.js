@@ -25,13 +25,17 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    root: path.resolve(__dirname),
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      'react-stack': 'dist/react-stack'
+    }
   },
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, loader: 'babel?stage=0', include: path.join(__dirname, 'demo/src') },
-      { test: /\.js?$/, loader: 'babel?stage=0', exclude: /node_modules/ },
+      { test: /\.jsx?$/, loader: 'babel', include: path.join(__dirname, 'demo/src') },
+      { test: /\.js?$/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.scss?$/, loader: 'style!css!sass', include: path.join(__dirname, 'demo/src') },
 
       // Needed for the css-loader when [bootstrap-webpack](https://github.com/bline/bootstrap-webpack)
