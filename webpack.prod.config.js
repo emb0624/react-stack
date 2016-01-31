@@ -1,22 +1,26 @@
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
-  devtool: 'source-map'
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
-  ,entry: {
-    app: './demo/src/main.js'
-    ,vendor: ['react', 'react-dom', 'react-bootstrap']
+module.exports = {
+  entry: {
+    app: path.resolve(__dirname, 'src/main.js')
+    ,vendors: ['react', 'react-dom', 'react-bootstrap']
   }
 
   ,output: {
-    path: path.join(__dirname, 'public')
+    path: path.resolve(__dirname, 'public')
     ,filename: '[name].js'
-    ,publicPath: '/public/'
   }
 
   ,plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+    new CleanWebpackPlugin(['public'], {
+      root: path.resolve(__dirname)
+      ,verbose: true
+      ,dry: false
+    })
+    ,new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
     ,new webpack.optimize.DedupePlugin()
     ,new webpack.optimize.UglifyJsPlugin({
       minimize: true
@@ -26,19 +30,18 @@ module.exports = {
     })
   ]
 
-  ,resolve: {
-    root: path.resolve(__dirname)
-    ,extensions: ['', '.js', '.jsx']
-    ,alias: {
-      'react-stack': 'dist/react-stack'
-    }
-  }
-
   ,module: {
     loaders: [
-      { test: /\.jsx?$/, loader: 'babel', include: path.join(__dirname, 'demo/src') }
-      ,{ test: /\.js?$/, loader: 'babel', exclude: /node_modules/ }
-      ,{ test: /\.scss?$/, loader: 'style!css!sass', include: path.join(__dirname, 'demo/src') }
+      {
+        test: /\.jsx?$/
+        ,include: path.resolve(__dirname, 'src')
+        ,loader: 'babel'
+      }
+      ,{
+        test: /\.scss$/
+        ,include: path.resolve(__dirname, 'src')
+        ,loader: 'style!css!sass'
+      }
 
       // Needed for the css-loader when [bootstrap-webpack](https://github.com/bline/bootstrap-webpack)
       // loads bootstrap's css.

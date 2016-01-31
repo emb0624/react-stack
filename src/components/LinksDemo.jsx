@@ -1,6 +1,8 @@
 import React from 'react';
 import { Panel } from 'react-bootstrap';
-import { HttpLink, EmailLink, PhoneLink } from 'react-stack';
+import HttpLink from './HttpLink.jsx';
+import EmailLink from './EmailLink.jsx';
+import PhoneLink from './PhoneLink.jsx';
 
 class LinksDemo extends React.Component {
   constructor(){

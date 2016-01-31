@@ -6,11 +6,10 @@
   "main": "./dist/react-stack.js",
   "scripts": {
     "postinstall": "npm run deploy",
-    "start": "node server.js",
+    "start": "./node_modules/.bin/babel-node server",
     "build": "webpack --progress --colors",
-    "watch": "node ./node_modules/concurrently/src/main.js --kill-others \"webpack --progress --colors --watch\" \"webpack-dev-server --config webpack.demo.config.js --hot --progress --colors\"",
-    "build-demo": "webpack --config ./webpack.prod.config.js --progress --colors",
-    "deploy": "set NODE_ENV=production && webpack --progress --colors && webpack --config ./webpack.prod.config.js --progress --colors"
+    "watch": "webpack-dev-server --inline --hot --colors --no-info",
+    "deploy": "set NODE_ENV=production && webpack --config ./webpack.prod.config.js --progress --colors"
   },
   "keywords": [
     "react",
@@ -51,6 +50,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0-beta6",
+    "clean-webpack-plugin": "^0.1.7",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.11.3",
     "webpack-dev-server": "1.10.1"

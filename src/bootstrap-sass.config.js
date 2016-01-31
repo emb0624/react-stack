@@ -8,7 +8,7 @@ module.exports = {
 
     'normalize': true,
     'print': true,
-    'glyphicons': false,
+    'glyphicons': true,
 
     'scaffolding': true,
     'type': true,
