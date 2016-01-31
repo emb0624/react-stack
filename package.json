@@ -2,6 +2,10 @@
   "name": "react-stack",
   "private": true,
   "version": "0.0.1",
+  "engines": {
+    "node": "4.1.x",
+    "npm": "3.3.x"
+  },
   "description": "Reusable React Components",
   "main": "./dist/react-stack.js",
   "scripts": {
