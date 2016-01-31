@@ -1,8 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-
 module.exports = {
   devtool: 'source-map'
 
@@ -44,12 +42,7 @@ module.exports = {
   }
 
   ,plugins: [
-    new CleanWebpackPlugin(['public'], {
-      root: path.resolve(__dirname)
-      ,verbose: true
-      ,dry: false
-    })
-    ,new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
     ,new webpack.optimize.DedupePlugin()
     ,new webpack.optimize.UglifyJsPlugin({
       minimize: false
