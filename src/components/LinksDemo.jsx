@@ -13,9 +13,9 @@ class LinksDemo extends React.Component {
 
     return (
       <Panel header="Links Helpers">
-        <div><HttpLink displayText="Emmanuel Morales" isHttps value="github.com/emb0624" /></div>
-        <div><EmailLink value="emmanuel.morales@headspring.com" /></div>
-        <div><PhoneLink displayText="(787) 370-9596" value="7873709596" /></div>
+        <div><HttpLink displayText="EMB Engineering" isHttps value="github.com/embengineering" /></div>
+        <div><EmailLink value="emorales0024@gmail.com" /></div>
+        <div><PhoneLink displayText="1.777.777.7777" value="17777777777" /></div>
       </Panel>
     );
   }
